@@ -766,6 +766,86 @@ box-shadow:
 0 0 25px rgba(42,22,15,.25);
 
 }
+/* DESKTOP */
+
+@media(min-width:900px){
+
+body{
+padding:40px 0;
+}
+
+/* секции */
+section{
+max-width:1200px;
+padding:30px 40px 80px;
+}
+
+/* hero */
+.hero{
+min-height:auto;
+padding-top:120px;
+}
+
+.hero-card{
+max-width:720px;
+margin:auto;
+}
+
+/* история */
+.story-card{
+max-width:760px;
+margin:auto;
+}
+
+/* сетки */
+.info-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:24px;
+}
+
+/* большие карточки */
+.info-card{
+height:100%;
+}
+
+/* анкета */
+.rsvp-frame{
+max-width:900px;
+margin:auto;
+}
+
+/* footer */
+footer{
+padding-bottom:140px;
+}
+
+/* нижнее меню */
+nav{
+max-width:760px;
+padding:12px;
+}
+
+nav a{
+font-size:10px;
+padding:12px 18px;
+}
+
+/* текст */
+.story-line{
+font-size:2.3rem;
+line-height:1.45;
+}
+
+.hero h1{
+font-size:7rem;
+}
+
+.block-title h2{
+font-size:4rem;
+}
+
+}
 
 </style>
 </head>
@@ -804,7 +884,12 @@ box-shadow:
 
 <a href="#chat">Чат</a>
 
+<a href="#gifts">Подарки</a>
+
 <a href="#rsvp">Анкета</a>
+
+</nav>
+
 
 <!-- HERO -->
 
@@ -1068,7 +1153,7 @@ welcome-зона
 </section>
 <!-- CHAT -->
 
-<section class="reveal">
+<section id="chat" class="reveal">
 
 <div class="block-title">
 
@@ -1135,7 +1220,7 @@ style="margin-top:24px;display:block;">
 
 <!-- GIFTS -->
 
-<section class="reveal">
+<section id="gifts" class="reveal">
 
 <div class="block-title">
 
