@@ -490,11 +490,11 @@ transition:.35s ease;
 
 .hero-btn.secondary{
 
-background:transparent;
+background:#2a160f;
 
-border:1px solid rgba(42,22,15,.12);
+border:none;
 
-color:var(--brown);
+color:#fff;
 
 }
 
@@ -806,6 +806,8 @@ font-size:1.55rem;
 #musicBtn.playing{
 
 background:#1b0f0a;
+
+color:#fff;
 
 box-shadow:
 0 0 25px rgba(42,22,15,.25);
@@ -1506,7 +1508,11 @@ musicBtn.innerHTML =
 musicBtn.classList.add('playing');
 
 })
-.catch(()=>{});
+.catch(()=>{
+
+alert('Нажмите кнопку ещё раз для запуска музыки');
+
+});
 
 }else{
 
@@ -1521,32 +1527,6 @@ musicBtn.classList.remove('playing');
 
 }
 
-/* автозапуск при скролле */
-
-window.addEventListener(
-'scroll',
-function(){
-
-if(!musicStarted){
-
-music.play()
-.then(()=>{
-
-musicStarted = true;
-
-musicBtn.innerHTML =
-'❚❚ Пауза';
-
-musicBtn.classList.add('playing');
-
-})
-.catch(()=>{});
-
-}
-
-},
-{once:true}
-);
 
 /* REVEAL */
 
