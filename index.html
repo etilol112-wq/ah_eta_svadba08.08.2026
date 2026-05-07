@@ -764,111 +764,6 @@ line-height:1.8;
 
 }
 
-/* автозапуск после первого касания */
-
-function startMusicOnce(){
-
-if(!musicStarted){
-
-music.play()
-.then(()=>{
-
-musicStarted = true;
-
-musicBtn.innerHTML =
-'❚❚ Пауза';
-
-musicBtn.classList.add('playing');
-
-})
-.catch(()=>{});
-
-}
-
-document.removeEventListener(
-'touchstart',
-startMusicOnce
-);
-
-document.removeEventListener(
-'click',
-startMusicOnce
-);
-
-}
-
-document.addEventListener(
-'touchstart',
-startMusicOnce
-);
-
-document.addEventListener(
-'click',
-startMusicOnce
-);
-
-/* автозапуск после первого действия */
-
-function startMusicOnce(){
-
-if(!musicStarted){
-
-music.play()
-.then(()=>{
-
-musicStarted = true;
-
-musicBtn.innerHTML =
-'❚❚ Пауза';
-
-musicBtn.classList.add('playing');
-
-})
-.catch((e)=>{
-
-console.log(e);
-
-});
-
-}
-
-document.removeEventListener(
-'mousemove',
-startMusicOnce
-);
-
-document.removeEventListener(
-'touchstart',
-startMusicOnce
-);
-
-document.removeEventListener(
-'scroll',
-startMusicOnce
-);
-
-}
-
-/* ПК */
-document.addEventListener(
-'mousemove',
-startMusicOnce,
-{ once:true }
-);
-
-/* телефон */
-document.addEventListener(
-'touchstart',
-startMusicOnce,
-{ once:true }
-);
-
-/* fallback */
-document.addEventListener(
-'scroll',
-startMusicOnce,
-{ once:true }
-);
 
 /* REVEAL */
 
@@ -1632,6 +1527,69 @@ musicBtn.classList.remove('playing');
 }
 
 }
+
+/* автозапуск после первого действия */
+
+function startMusicOnce(){
+
+if(!musicStarted){
+
+music.play()
+.then(()=>{
+
+musicStarted = true;
+
+musicBtn.innerHTML =
+'❚❚ Пауза';
+
+musicBtn.classList.add('playing');
+
+})
+.catch((e)=>{
+
+console.log(e);
+
+});
+
+}
+
+document.removeEventListener(
+'mousemove',
+startMusicOnce
+);
+
+document.removeEventListener(
+'touchstart',
+startMusicOnce
+);
+
+document.removeEventListener(
+'scroll',
+startMusicOnce
+);
+
+}
+
+/* ПК */
+document.addEventListener(
+'mousemove',
+startMusicOnce,
+{ once:true }
+);
+
+/* телефон */
+document.addEventListener(
+'touchstart',
+startMusicOnce,
+{ once:true }
+);
+
+/* fallback */
+document.addEventListener(
+'scroll',
+startMusicOnce,
+{ once:true }
+);
 
 
 /* REVEAL */
