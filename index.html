@@ -7,7 +7,7 @@
 <title>Анастасия & Сергей — 08 августа 2026</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
+  
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
@@ -1336,44 +1336,71 @@ setInterval(timer,1000);
 const music =
 document.getElementById('song');
 
+const musicBtn =
+document.getElementById('musicBtn');
+
 music.volume = 0.9;
 
-function toggleMusic(){
+let musicStarted = false;
 
-const btn =
-document.getElementById('musicBtn');
+/* кнопка */
+
+function toggleMusic(){
 
 if(music.paused){
 
 music.play()
 .then(()=>{
 
-btn.innerHTML =
+musicStarted = true;
+
+musicBtn.innerHTML =
 '❚❚ Пауза';
 
-btn.classList.add('playing');
+musicBtn.classList.add('playing');
 
 })
-.catch((e)=>{
-
-alert(
-'Не удалось включить музыку'
-);
-
-});
+.catch(()=>{});
 
 }else{
 
 music.pause();
 
-btn.innerHTML =
+musicBtn.innerHTML =
 '♫ Наша мелодия';
 
-btn.classList.remove('playing');
+musicBtn.classList.remove('playing');
 
 }
 
 }
+
+/* автозапуск при скролле */
+
+window.addEventListener(
+'scroll',
+function(){
+
+if(!musicStarted){
+
+music.play()
+.then(()=>{
+
+musicStarted = true;
+
+musicBtn.innerHTML =
+'❚❚ Пауза';
+
+musicBtn.classList.add('playing');
+
+})
+.catch(()=>{});
+
+}
+
+},
+{once:true}
+);
 
 /* REVEAL */
 
