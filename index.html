@@ -764,6 +764,49 @@ line-height:1.8;
 
 }
 
+/* автозапуск после первого касания */
+
+function startMusicOnce(){
+
+if(!musicStarted){
+
+music.play()
+.then(()=>{
+
+musicStarted = true;
+
+musicBtn.innerHTML =
+'❚❚ Пауза';
+
+musicBtn.classList.add('playing');
+
+})
+.catch(()=>{});
+
+}
+
+document.removeEventListener(
+'touchstart',
+startMusicOnce
+);
+
+document.removeEventListener(
+'click',
+startMusicOnce
+);
+
+}
+
+document.addEventListener(
+'touchstart',
+startMusicOnce
+);
+
+document.addEventListener(
+'click',
+startMusicOnce
+);
+
 /* REVEAL */
 
 .reveal{
