@@ -1,0 +1,1096 @@
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Анастасия & Сергей — 08 августа 2026</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+:root{
+--cream:#faf7f2;
+--warm:#ede4d4;
+--gold:#301807;
+--gold-light:#301807;
+--text:#2c2420;
+--muted:#301807;
+--serif:'Cormorant Garamond',serif;
+--sans:'Jost',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:var(--cream);
+color:var(--text);
+font-family:var(--sans);
+font-weight:300;
+line-height:1.7;
+overflow-x:hidden;
+}
+
+/* intro */
+
+#intro{
+position:fixed;
+inset:0;
+background:var(--cream);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+animation:introFade 3.8s forwards;
+}
+
+.intro-inner{
+text-align:center;
+animation:introZoom 3s ease forwards;
+}
+
+.intro-line{
+width:1px;
+height:90px;
+margin:0 auto 35px;
+background:linear-gradient(transparent,var(--gold));
+}
+
+#intro h1{
+font-family:var(--serif);
+font-size:clamp(3rem,8vw,6rem);
+font-weight:300;
+letter-spacing:.03em;
+opacity:0;
+animation:titleRise 1.6s .4s forwards;
+}
+
+#intro h1 span{
+font-style:italic;
+color:var(--gold);
+}
+
+#intro p{
+margin-top:20px;
+font-size:12px;
+letter-spacing:.35em;
+text-transform:uppercase;
+color:var(--muted);
+opacity:0;
+animation:titleRise 1.6s .9s forwards;
+}
+
+@keyframes titleRise{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes introZoom{
+0%{transform:scale(1.04)}
+100%{transform:scale(1)}
+}
+
+@keyframes introFade{
+0%,75%{
+opacity:1;
+visibility:visible;
+}
+100%{
+opacity:0;
+visibility:hidden;
+pointer-events:none;
+}
+}
+
+/* nav */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+right:0;
+
+display:flex;
+justify-content:center;
+align-items:center;
+flex-wrap:wrap;
+
+gap:8px;
+
+padding:12px 10px;
+
+background:rgba(250,247,242,.92);
+
+backdrop-filter:blur(14px);
+
+z-index:100;
+
+border-bottom:1px solid rgba(184,155,106,.18);
+}
+
+nav a{
+text-decoration:none;
+font-size:10px;
+letter-spacing:.08em;
+text-transform:uppercase;
+color:var(--muted);
+
+padding:8px 10px;
+border-radius:999px;
+
+transition:.35s ease;
+}
+
+nav a:hover{
+background:rgba(48,24,7,.08);
+color:var(--gold);
+}
+
+nav a.active{
+background:var(--gold);
+color:#fff;
+box-shadow:0 0 12px rgba(48,24,7,.15);
+}
+
+/* sections */
+
+section{
+max-width:840px;
+margin:auto;
+padding:90px 20px;
+position:relative;
+z-index:1;
+scroll-margin-top:120px;
+}
+
+/* hero */
+
+.hero{
+min-height:100svh;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+padding-top:140px;
+padding-bottom:40px;
+padding-left:18px;
+padding-right:18px;
+}
+
+.hero-line{
+width:1px;
+height:90px;
+background:linear-gradient(transparent,var(--gold));
+margin-bottom:32px;
+}
+
+.hero-label{
+font-size:11px;
+letter-spacing:.25em;
+text-transform:uppercase;
+color:var(--gold);
+margin-bottom:22px;
+}
+
+.hero h1{
+font-family:var(--serif);
+font-weight:300;
+line-height:1;
+
+font-size:clamp(4rem,9vw,7rem);
+}
+
+.hero h1 em{
+font-style:italic;
+color:var(--gold);
+}
+
+.hero-date{
+margin-top:18px;
+font-size:12px;
+letter-spacing:.18em;
+text-transform:uppercase;
+color:var(--muted);
+}
+
+.hero-btn{
+margin-top:24px;
+
+display:inline-block;
+
+text-decoration:none;
+
+border:1px solid var(--gold);
+
+padding:16px 18px;
+
+width:100%;
+max-width:320px;
+
+color:var(--text);
+background:transparent;
+
+font-size:10px;
+letter-spacing:.18em;
+text-transform:uppercase;
+
+cursor:pointer;
+
+transition:.35s ease;
+}
+
+.hero-btn:hover{
+background:var(--gold);
+color:#fff;
+box-shadow:0 0 18px rgba(48,24,7,.18);
+}
+
+.hero-btn:active{
+transform:scale(.98);
+}
+
+#musicBtn.playing{
+background:var(--gold);
+color:#fff;
+box-shadow:0 0 18px rgba(48,24,7,.18);
+}
+
+/* countdown */
+
+.countdown{
+display:flex;
+gap:12px;
+
+margin-top:36px;
+
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.cd{
+text-align:center;
+}
+
+.num{
+font-family:var(--serif);
+font-size:34px;
+color:var(--gold);
+}
+
+.lab{
+font-size:9px;
+letter-spacing:.15em;
+text-transform:uppercase;
+color:var(--muted);
+}
+
+/* titles */
+
+.divider{
+display:flex;
+align-items:center;
+gap:20px;
+max-width:320px;
+margin:0 auto 10px;
+}
+
+.divider:before,
+.divider:after{
+content:"";
+flex:1;
+height:1px;
+background:var(--gold-light);
+}
+
+.divider span{
+font-size:28px;
+color:var(--gold);
+}
+
+h2{
+font-family:var(--serif);
+font-weight:300;
+font-size:clamp(2rem,5vw,3.2rem);
+text-align:center;
+margin-bottom:6px;
+}
+
+.subtitle{
+text-align:center;
+color:var(--muted);
+margin-bottom:50px;
+font-size:16px;
+}
+
+/* story */
+
+.story-cinematic{
+max-width:640px;
+margin:40px auto 0;
+
+text-align:center;
+
+display:flex;
+flex-direction:column;
+gap:26px;
+}
+
+.story-cinematic p{
+font-family:var(--serif);
+font-size:20px;
+line-height:1.7;
+color:var(--muted);
+}
+
+.story-cinematic p.story-final{
+margin-top:10px;
+font-size:26px;
+color:var(--gold);
+font-style:italic;
+}
+
+.story-line{
+opacity:0;
+transform:translateY(30px);
+transition:all .8s ease;
+}
+
+.story-line.show{
+opacity:1;
+transform:none;
+}
+
+.grid2,
+.info{
+display:grid;
+grid-template-columns:1fr;
+gap:32px;
+}
+
+.card,
+.info-card{
+border:1px solid rgba(184,155,106,.3);
+padding:36px 24px;
+text-align:center;
+}
+
+.info-card{
+background:var(--warm);
+transition:.35s ease;
+}
+
+.info-card:hover{
+transform:translateY(-6px);
+box-shadow:0 16px 35px rgba(48,24,7,.08);
+}
+
+.card .roman{
+font-size:38px;
+font-family:var(--serif);
+color:var(--gold);
+margin-bottom:14px;
+}
+
+.card h3,
+.info-card h3{
+font-family:var(--serif);
+font-size:28px;
+margin-bottom:12px;
+font-weight:400;
+}
+
+p{
+font-size:17px;
+line-height:1.8;
+}
+
+/* reveal */
+
+.reveal{
+opacity:0;
+transform:translateY(70px);
+transition:1.4s cubic-bezier(.22,1,.36,1);
+will-change:transform,opacity;
+}
+
+.reveal.show{
+opacity:1;
+transform:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="intro">
+<div class="intro-inner">
+<div class="intro-line"></div>
+
+<h1>
+Анастасия <span>&</span> Сергей
+</h1>
+
+<p>08 августа 2026</p>
+
+</div>
+</div>
+
+<nav>
+<a href="#story">История</a>
+<a href="#details">Детали</a>
+<a href="#info">Информация</a>
+<a href="#chat">Чат</a>
+<a href="#dress">Дресс-код</a>
+<a href="#congrats">Поздравления</a>
+<a href="#rsvp">Присутствие</a>
+</nav>
+
+<section class="hero">
+
+<div class="hero-line"></div>
+
+<div class="hero-label">
+Приглашают на свадьбу
+</div>
+
+<h1>
+Анастасия<br>
+<em>&</em><br>
+Сергей
+</h1>
+
+<div class="hero-date">
+08 августа 2026
+</div>
+
+<div class="countdown" id="countdown">
+
+<div class="cd">
+<div class="num" id="d"></div>
+<div class="lab">дней</div>
+</div>
+
+<div class="cd">
+<div class="num" id="h"></div>
+<div class="lab">часов</div>
+</div>
+
+<div class="cd">
+<div class="num" id="m"></div>
+<div class="lab">минут</div>
+</div>
+
+<div class="cd">
+<div class="num" id="s"></div>
+<div class="lab">секунд</div>
+</div>
+
+</div>
+
+<a href="#rsvp" class="hero-btn">
+Подтвердить присутствие
+</a>
+
+<button onclick="toggleMusic()" class="hero-btn" id="musicBtn">
+♫ Мелодия для настроения
+</button>
+
+<audio id="song" preload="auto">
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+</section>
+
+<section id="story" class="reveal">
+
+<div class="divider"><span>✦</span></div>
+
+<h2>Наша история</h2>
+
+<div class="story-cinematic">
+
+<p class="story-line">
+Всё началось с одного внезапного сообщения весной.
+</p>
+
+<p class="story-line">
+Сначала — разговоры до ночи,<br>
+потом — привычка быть рядом.
+</p>
+
+<p class="story-line">
+Мы даже не заметили,<br>
+как стали друг для друга домом.
+</p>
+
+<p class="story-line">
+Научились быть командой,<br>
+поддерживать и идти вместе.
+</p>
+
+<p class="story-line story-final">
+И вот настал день —<br>
+которого так долго ждали.
+</p>
+
+</div>
+
+</section>
+```
+```html id="ozj98v"
+<section id="details" class="reveal">
+
+<div class="divider"><span>✦</span></div>
+
+<h2>Место проведения</h2>
+
+<div class="card">
+
+<h3 style="font-size:42px;">
+Лесная ул., 3
+</h3>
+
+<p style="margin-top:10px;">
+Колмогорово
+</p>
+
+<p style="margin-top:24px;">
+Церемония и праздничный ужин
+пройдут в одном месте
+</p>
+
+<a href="https://go.2gis.com/JjfuT"
+target="_blank"
+class="hero-btn"
+style="margin:auto;margin-top:30px;">
+Построить маршрут
+</a>
+
+</div>
+
+<div class="divider" style="margin-top:80px;">
+<span>✦</span>
+</div>
+
+<h2>Программа дня</h2>
+
+<div class="grid2">
+
+<div class="card">
+<div class="roman">I</div>
+
+<h3>Сбор гостей</h3>
+
+<p>
+14:00<br>
+welcome-зона,<br>
+встреча гостей
+</p>
+</div>
+
+<div class="card">
+<div class="roman">II</div>
+
+<h3>Церемония</h3>
+
+<p>
+14:30<br>
+обмен клятвами<br>
+и начало праздника
+</p>
+</div>
+
+<div class="card">
+<div class="roman">III</div>
+
+<h3>Ужин</h3>
+
+<p>
+Банкет,<br>
+танцы и сюрпризы
+</p>
+</div>
+
+<div class="card">
+<div class="roman">IV</div>
+
+<h3>Финал вечера</h3>
+
+<p>
+Торт,<br>
+объятия и много счастья
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="info" class="reveal">
+
+<div class="divider"><span>✦</span></div>
+
+<h2>Информация гостям</h2>
+
+<div class="info">
+
+<div class="info-card">
+
+<div class="roman">✦</div>
+
+<h3>Трансфер</h3>
+
+<p>
+12:30<br>
+Место сбора сообщим дополнительно
+</p>
+
+</div>
+
+<div class="info-card">
+
+<div class="roman">✦</div>
+
+<h3>Парковка</h3>
+
+<p>
+Для гостей на авто
+предусмотрена парковка
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="chat" class="reveal">
+
+<div class="divider"><span>✦</span></div>
+
+<h2>Чат гостей</h2>
+
+<p class="subtitle">
+Для удобства общения и координации
+мы создали общие беседы
+</p>
+
+<div class="grid2">
+
+<div class="card">
+
+<div class="roman">✦</div>
+
+<h3>MAX</h3>
+
+<p>
+Новости, детали<br>
+и общение гостей
+</p>
+
+<a href="https://max.ru/join/RVaHVyZka2A8gp5NwWYS592n4ncGulmfIHps-aXDm7M"
+class="hero-btn"
+style="margin:auto;margin-top:25px;">
+Вступить
+</a>
+
+</div>
+
+<div class="card">
+
+<div class="roman">✦</div>
+
+<h3>Telegram</h3>
+
+<p>
+Новости, вопросы<br>
+и координация гостей
+</p>
+
+<a href="https://t.me/+byODoXhUuGY0MzQy"
+target="_blank"
+class="hero-btn"
+style="margin:auto;margin-top:25px;">
+Вступить
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="dress" class="reveal">
+
+<div class="divider"><span>✦</span></div>
+
+<h2>Дресс-код</h2>
+
+<div class="card">
+
+<p>
+Для нас будет особенно приятно,
+если при выборе нарядов вы поддержите
+пастельную цветовую гамму
+</p>
+
+<div style="
+display:flex;
+justify-content:center;
+gap:24px;
+margin:35px 0;
+">
+
+<div style="
+width:70px;
+height:70px;
+border-radius:50%;
+background:#858b7d;
+"></div>
+
+<div style="
+width:70px;
+height:70px;
+border-radius:50%;
+background:#a5b0c8;
+"></div>
+
+<div style="
+width:70px;
+height:70px;
+border-radius:50%;
+background:#87639a;
+"></div>
+
+</div>
+
+<p>
+Просим по возможности избегать
+ярко-розовых оттенков
+</p>
+
+</div>
+
+</section>
+
+<section id="congrats" class="reveal">
+
+<div class="divider"><span>✦</span></div>
+
+<h2>Поздравления</h2>
+
+<p class="subtitle">
+Ваше присутствие — главный подарок для нас
+</p>
+
+<div class="grid2">
+
+<div class="card">
+
+<div class="roman">✦</div>
+
+<h3>Подарки</h3>
+
+<p>
+Если захотите порадовать нас подарком,
+мы будем благодарны вкладу
+в наши будущие мечты и путешествия
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="roman">✦</div>
+
+<h3>Цветы</h3>
+
+<p>
+Просим не дарить цветы —
+вместо этого можно заменить их
+бутылкой вина
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="rsvp" class="reveal">
+
+<div class="divider"><span>✦</span></div>
+
+<h2>Анкета гостя</h2>
+
+<p class="subtitle">
+Пожалуйста, ответьте до 1 июля 2026
+</p>
+
+<div style="
+border:1px solid rgba(184,155,106,.3);
+padding:20px;
+">
+
+<iframe
+src="https://docs.google.com/forms/d/e/1FAIpQLSfQOWZo72RgVNAN303s-kRWiK0f32H8sDS6o0fxigCzFtNvqw/viewform?embedded=true"
+style="
+width:100%;
+height:1400px;
+border:none;
+background:white;
+">
+</iframe>
+
+</div>
+
+</section>
+
+<footer>
+
+<h3 style="
+font-family:var(--serif);
+font-size:52px;
+font-weight:300;
+font-style:italic;
+color:var(--gold);
+text-align:center;
+">
+Анастасия & Сергей
+</h3>
+
+<p style="
+text-align:center;
+margin-top:12px;
+">
+08 августа 2026
+</p>
+
+<p style="
+text-align:center;
+margin-top:24px;
+font-style:italic;
+color:var(--muted);
+padding:0 20px;
+">
+В любой непонятный момент
+Сергей включает Насте Кадышеву —
+и мир становится ярче ✦
+</p>
+
+</footer>
+
+<script>
+
+/* timer */
+
+const wedding = new Date('2026-08-08T14:00:00');
+
+function timer(){
+
+const diff = wedding - Date.now();
+
+document.getElementById('d').textContent =
+Math.floor(diff / 86400000);
+
+document.getElementById('h').textContent =
+String(
+Math.floor(diff % 86400000 / 3600000)
+).padStart(2,'0');
+
+document.getElementById('m').textContent =
+String(
+Math.floor(diff % 3600000 / 60000)
+).padStart(2,'0');
+
+document.getElementById('s').textContent =
+String(
+Math.floor(diff % 60000 / 1000)
+).padStart(2,'0');
+
+}
+
+timer();
+
+setInterval(timer,1000);
+
+/* music */
+
+const music = document.getElementById('song');
+
+music.volume = 0.9;
+
+function toggleMusic(){
+
+const btn = document.getElementById('musicBtn');
+
+if(music.paused){
+
+music.play()
+.then(()=>{
+
+btn.innerHTML = '❚❚ Пауза';
+
+btn.classList.add('playing');
+
+})
+.catch((error)=>{
+
+console.log(error);
+
+});
+
+}else{
+
+music.pause();
+
+btn.innerHTML = '♫ Мелодия для настроения';
+
+btn.classList.remove('playing');
+
+}
+
+}
+
+/* reveal */
+
+const reveals = document.querySelectorAll('.reveal');
+
+const observer = new IntersectionObserver(function(entries){
+
+entries.forEach(function(entry){
+
+if(entry.isIntersecting){
+
+entry.target.classList.add('show');
+
+}
+
+});
+
+},{
+threshold:0.15
+});
+
+reveals.forEach(function(section){
+
+observer.observe(section);
+
+});
+
+/* story animation */
+
+const storyLines =
+document.querySelectorAll('.story-line');
+
+const storyObserver =
+new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+storyLines.forEach((line,index)=>{
+
+setTimeout(()=>{
+
+line.classList.add('show');
+
+}, index * 400);
+
+});
+
+}
+
+});
+
+},{
+threshold:0.4
+});
+
+const storySection =
+document.querySelector('#story');
+
+if(storySection){
+
+storyObserver.observe(storySection);
+
+}
+
+/* active menu */
+
+const sections =
+document.querySelectorAll("section[id]");
+
+const navLinks =
+document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+
+let current = "";
+
+sections.forEach(section => {
+
+const sectionTop =
+section.offsetTop - 120;
+
+const sectionHeight =
+section.offsetHeight;
+
+if (
+pageYOffset >= sectionTop &&
+pageYOffset < sectionTop + sectionHeight
+) {
+
+current =
+section.getAttribute("id");
+
+}
+
+});
+
+navLinks.forEach(link => {
+
+link.classList.remove("active");
+
+if (
+link.getAttribute("href") === "#" + current
+) {
+
+link.classList.add("active");
+
+}
+
+});
+
+});
+
+window.scrollTo(0,0);
+
+</script>
+
+</body>
+</html>
+```
